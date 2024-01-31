@@ -1,5 +1,6 @@
 package com.gustavonascimento.projetoLoja.domain;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 
 import java.util.ArrayList;
@@ -14,6 +15,7 @@ public class Produto {
     private String nome;
     private Double preco;
 
+    @JsonBackReference
     @ManyToMany
     @JoinTable(name = "PRODUTO_CATEGORIA",
             joinColumns = @JoinColumn(name = "produto_id"),
