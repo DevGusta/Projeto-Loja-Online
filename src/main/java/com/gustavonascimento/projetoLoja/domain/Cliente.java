@@ -1,5 +1,6 @@
 package com.gustavonascimento.projetoLoja.domain;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.gustavonascimento.projetoLoja.domain.enums.TipoCliente;
 import jakarta.persistence.*;
 
@@ -16,6 +17,7 @@ public class Cliente {
     private String cpfOuCnpj;
     private Integer tipoCliente;
 
+    @JsonManagedReference
     @OneToMany(mappedBy = "cliente")
     private List<Endereco> enderecos = new ArrayList<>();
 

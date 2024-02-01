@@ -1,5 +1,7 @@
 package com.gustavonascimento.projetoLoja.domain;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 import java.util.Objects;
@@ -12,6 +14,7 @@ public class Cidade {
     private Integer id;
     private String Nome;
 
+    @JsonManagedReference
     @ManyToOne
     @JoinColumn(name = "estado_id")
     private Estado estado;
